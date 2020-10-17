@@ -1,8 +1,9 @@
 import sys
 import pandas as pd
-from bball_generatpr import bball_player
-from rpg_generator import rpg_player
-from name_generator import get_data, name_generator
+from generators import gender_generator, bball_generator, name_generator, rpg_generator 
+# from bball_generatpr import bball_player
+# from rpg_generator import rpg_player
+# from name_generator import get_data, name_generator
 
 def generator(n, generator_type):
     """
@@ -13,14 +14,14 @@ def generator(n, generator_type):
     n - number of players that needs to be generated.
     generator_type - type of generator that needs to be used (type tuple => Generator_name, generator_type)
     """  
-    name_data = get_data()
+    name_data = name_generator.get_data()
     
     if generator_type == "-bball":
-        player_data = bball_player(name_data, n)
+        player_data = bball_generator.bball_player(name_data, n)
     elif generator_type == "-rpg":
-        player_data = rpg_player(name_data, n)
+        player_data = rpg_generator.rpg_player(name_data, n)
     elif generator_type == "-name":
-        player_data = name_generator(name_data, n)
+        player_data = name_generator.name_generator(name_data, n)
 
     return player_data
 

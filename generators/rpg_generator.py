@@ -1,6 +1,5 @@
 from random import randint, uniform
-from name_generator import single_name_generator
-from gender_generator import gender_generator
+from generators import name_generator, gender_generator
 import pandas as pd
 
 def attribute_gen(att_range):
@@ -49,11 +48,11 @@ def rpg_player(name_data, n):
     for _ in range(n):
         class_type = possible_classes[randint(0,5)]
         # Generate player_properties
-        gender, gender_letter = gender_generator()
+        gender, gender_letter = gender_generator.gender_generator()
 
         p_data_pro['gender'].append(gender_letter)
 
-        p_data_pro['name'].append(single_name_generator(name_data, gender))
+        p_data_pro['name'].append(name_generator.single_name_generator(name_data, gender))
         
         p_data_pro['height'].append((round(uniform(150, 240), 2)))
         

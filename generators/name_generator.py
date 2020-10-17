@@ -1,6 +1,7 @@
 from pathlib import Path
+from os import chdir
 from random import randint, uniform
-from gender_generator import gender_generator
+from generators import gender_generator
 import pandas as pd
 
 def get_data():
@@ -9,7 +10,8 @@ def get_data():
     data_file_names = ['male-names', 'female-names', 'last-names', 'basketball-teams']
     data = {}
     for file in data_file_names:
-        file_folder = Path("data/")
+        path = Path('..')
+        file_folder = Path(f"{path.cwd()}/data/")
         file_path = file_folder / f'{file}.txt'
         file_data = open(file_path, 'r')
         file_data = file_data.readlines()
@@ -31,7 +33,7 @@ def name_generator(name_data, n):
     ''' Generates a full name, gender => returns a pandas DataFrame '''
     data = {'name': [], 'gender': []}
     for _ in range(n):
-        gender, gender_letter = gender_generator()
+        gender, gender_letter = gender_generator.gender_generator()
         data['name'].append(single_name_generator(name_data, gender))
         data['gender'].append(gender_letter)
         print(f'Generating name {_} out of {n}')

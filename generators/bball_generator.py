@@ -1,6 +1,5 @@
 from random import randint, uniform
-from name_generator import single_name_generator
-from gender_generator import gender_generator
+from generators import name_generator, gender_generator
 import pandas as pd
 
 def bball_player(name_data, n):
@@ -10,9 +9,9 @@ def bball_player(name_data, n):
         player_data[prop] = []
 
     for _ in range(n):
-        gender, player_data['gender'] = gender_generator()
+        gender, player_data['gender'] = gender_generator.gender_generator()
 
-        player_data['name'].append(single_name_generator(name_data, gender))
+        player_data['name'].append(name_generator.single_name_generator(name_data, gender))
         
         player_data['team'].append(name_data['basketball-teams'][randint(0,len(name_data['basketball-teams']))])
         
