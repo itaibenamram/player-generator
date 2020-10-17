@@ -1,6 +1,8 @@
 from pathlib import Path
 
 def get_data():
+    """Imports all the names from txt files and returns a dictionary."""
+
     data_file_names = ['male-names', 'female-names', 'last-names', 'basketball-teams']
     data = {}
     for file in data_file_names:
@@ -14,6 +16,7 @@ def get_data():
 
 from random import randint, uniform
 def name_generator(data, gender):
+    """ Generated a full name and returns a string"""
     gender_key = f'{gender}-names'
     first_name = data[gender_key][randint(0,len(data[gender_key]))].capitalize()
     last_name = data['last-names'][randint(0, len(data['last-names']))].capitalize()
