@@ -1,6 +1,7 @@
 import sys
 import pandas as pd
 from bball_generatpr import bball_player
+from rpg_generator import rpg_player
 from name_generator import get_data
 
 def generator(n, generator_type):
@@ -15,7 +16,10 @@ def generator(n, generator_type):
     name_data = get_data()
     if generator_type == "-bball":
         player_data = bball_player(name_data, n)
-        return pd.DataFrame(player_data)
+    elif generator_type == "-rpg":
+        player_data = rpg_player(name_data, n)
+    
+    return player_data
 
 def generator_type_check(user_argument):
     """

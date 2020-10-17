@@ -1,4 +1,5 @@
 from pathlib import Path
+from random import randint, uniform
 
 def get_data():
     """Imports all the names from txt files and returns a dictionary."""
@@ -14,7 +15,7 @@ def get_data():
         data[file] = file_data
     return data
 
-from random import randint, uniform
+
 def name_generator(data, gender):
     """ Generated a full name and returns a string"""
     gender_key = f'{gender}-names'

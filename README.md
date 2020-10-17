@@ -1,21 +1,19 @@
 ## Welcome to Player Generator :information_desk_person:
 
-Player Generator aims to be an extensive generator that will help you create player data with ease for use in Apps / board game / video games or whatever comes to mind.
-
-
+Player Generator aims to be an extensive generator that will help you create player data with ease for use in Apps / board games / database testing or whatever comes to mind.
 
 ### Why was the player generator created?
 
 Although there are numerous types of generators on the internet I wanted to create a versatile generator that can generate a big amount of data for a website I am building (to test it's database).
 
-I Started to put together the generator that I hope to turn into an api (but that's still far away).
+I Started to put together the generator that I hope to turn into an API (but that's still far away).
 
 
 
 ### Current features :rocket::
 
 - Name generator - create as many unique names as you'd like and export them to a .csv file.
-- Command line arguments - define the type of generator you want using the commandline
+- Command line arguments - define the type of generator you want using the command-line
 - General Basketball player - creates a player with the following properties:
   - name, gender, team, age, height, weight, games_played
 - Generated data into `.csv`.
@@ -50,20 +48,21 @@ In the future you'll be able to define the amount of players you want to generat
 
 ### Current To-Do's:
 
-1. Implement the RPG generator (more on that below)
-2. Implement the option to choose the amount of players generated via the command line.
+1. Implement the option to choose the amount of players generated via the command line.
 3. Define the requirements to create new sport models.
 4. Implement the option to save to different file types.
+4. Restructure the projects file system - put the different generator files in a separate folder.
 5. Continuously reworking the README.md :raised_hands:
 
 
 
 #### Implemented in past commits:
 
-1. ~~Arrange the code files - split the functions into relevant pages,~~
+1. Arrange the code files - split the functions into relevant pages,
    - I want to package the files a bit differently, still figuring that one out :bulb:
-2. ~~Finish the basketball player model - without realistic numbers.~~
-3. ~~Implement the .csv export function.~~
+2. Finish the basketball player model - without realistic numbers.
+3. Implement the .csv export function.
+4. Implement the RPG generator (more on that below)
 
 
 
@@ -85,11 +84,22 @@ In the future I'd like to create an algorithm that calculates realistic point sc
 
 #### RPG player generator:
 
-Still under development.
+Currently the RPG player generator generates each player with the following properties:
+
+- Player general properties: name / gender/ class / age / height / weight
+
+- Player class (one of the following): barbarian / cleric / knight / mage / ranger / rouge
+- Class attributes: HP / STR / CON / DEX / INT / WIS / CHA
+
+Ranges of each attributes are based on class and are between the following ranges:
+
+- Low range: 0 - 4
+- Mid range: 5 - 7
+- High range: 7 - 10
 
 
 
-#### This is an open source project!
+### This is an open source project!
 
 If you'd like to help and work on this project or you have a cool idea you would like me to implement, just open an issue, fork the project or contact me :)
 
