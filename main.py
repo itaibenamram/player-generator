@@ -1,9 +1,7 @@
 import sys
 import pandas as pd
 from generators import gender_generator, bball_generator, name_generator, rpg_generator 
-# from bball_generatpr import bball_player
-# from rpg_generator import rpg_player
-# from name_generator import get_data, name_generator
+
 
 def generator(n, generator_type):
     """
