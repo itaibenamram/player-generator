@@ -1,5 +1,5 @@
 from random import randint, uniform
-from name_generator import name_generator
+from name_generator import single_name_generator
 from gender_generator import gender_generator
 import pandas as pd
 
@@ -53,7 +53,7 @@ def rpg_player(name_data, n):
 
         p_data_pro['gender'].append(gender_letter)
 
-        p_data_pro['name'].append(name_generator(name_data, gender))
+        p_data_pro['name'].append(single_name_generator(name_data, gender))
         
         p_data_pro['height'].append((round(uniform(150, 240), 2)))
         

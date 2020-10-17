@@ -1,4 +1,4 @@
-## Welcome to Player Generator :information_desk_person:
+## Welcome to Player Generator :gear:
 
 Player Generator aims to be an extensive generator that will help you create player data with ease for use in Apps / board games / database testing or whatever comes to mind.
 
@@ -12,10 +12,11 @@ I Started to put together the generator that I hope to turn into an API (but tha
 
 ### Current features :rocket::
 
-- Name generator - create as many unique names as you'd like and export them to a .csv file.
 - Command line arguments - define the type of generator you want using the command-line
+- Name generator - create as many unique names as you'd like and export them to a .csv file.
 - General Basketball player - creates a player with the following properties:
   - name, gender, team, age, height, weight, games_played
+- RPG player generator.
 - Generated data into `.csv`.
 
 
@@ -49,22 +50,25 @@ In the future you'll be able to define the amount of players you want to generat
 ### Current To-Do's:
 
 1. Implement the option to choose the amount of players generated via the command line.
-3. Define the requirements to create new sport models.
+2. Define the requirements to create new sport models.
 4. Implement the option to save to different file types.
-4. Restructure the projects file system - put the different generator files in a separate folder.
-5. Continuously reworking the README.md :raised_hands:
+5. Restructure the projects file system - put the different generator files in a separate folder.
+6. Continuously reworking the README.md :raised_hands:
 
 
 
 #### Implemented in past commits:
+
+##### 17/10/2020:
 
 1. Arrange the code files - split the functions into relevant pages,
    - I want to package the files a bit differently, still figuring that one out :bulb:
 2. Finish the basketball player model - without realistic numbers.
 3. Implement the .csv export function.
 4. Implement the RPG generator (more on that below)
+5. Restructure the project to allow only name generation.
 
-
+6. Various bug fixes.
 
 #### Basketball player generator:
 
