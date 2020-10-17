@@ -1,34 +1,15 @@
-from random import randint, uniform
 import pandas as pd
-
-def get_data():
-    data_file_names = ['male-names', 'female-names', 'last-names', 'basketball-teams']
-    data = {}
-    for file in data_file_names:
-        file_path = f'Sports_Player_Generator/data/{file}.txt'
-        file_data = open(file_path, 'r')
-        file_data = file_data.readlines()
-        file_data = list(map(lambda word: word.strip(), file_data))
-        data[file] = file_data
-    return data
-
 from random import randint, uniform
-def name_generator(data, gender):
-    gender_key = f'{gender}-names'
-    first_name = data[gender_key][randint(0,len(data[gender_key]))].capitalize()
-    last_name = data['last-names'][randint(0, len(data['last-names']))].capitalize()
-    full_name = f'{first_name} {last_name}'
-    
-    return(full_name)
+from name_generator import get_data, name_generator
 
-def main_generator(n):
+def generator(n):
     name_data = get_data()
     player_properties = ['name', 'team', 'age', 'height', 'weight', 'games_played']
     player_data = {}
     for prop in player_properties:
         player_data[prop] = []
 
-    for x in range(n):
+    for _ in range(n):
         gender_type = randint(0,1)
         if gender_type == 1:
             gender = 'male'
@@ -48,3 +29,12 @@ def main_generator(n):
     
     return pd.DataFrame(player_data)
     
+def main():
+    num_players = input("Please enter the number of players you would like to generate: ")
+    file_path = input("Please enter where you want the results to be saved: ")
+    generated_players = generator(int(num_players))
+    generated_players.to_csv(f'{file_path}.csv')
+    print(f'Generated {num_players} and stored them to {file_path}.csv')
+
+if __name__ == "__main__":
+    main()
