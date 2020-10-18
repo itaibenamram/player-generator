@@ -29,16 +29,17 @@ When in the directory of `player-generator` you can run the generator using `pyt
 
 The following command line arguments are currently available:
 
-- Generator types (needs to come after `main.py`)
-  - `-bball` to activate the basketball player generator.
-  - `-rpg` to activate the rpg player generator.
+- Generator types - defined using the `gentype=` followed by the generator types available:
+  - `bball` to activate the basketball player generator.
+  - `rpg` to activate the RPG player generator.
 - File name to save to (note that you only need to define the file name, and not the file type).:
-  - `-file_name`
+  - `file_name=<your-file-name>`
+- Use `--silent` to hide the console logging of player generation.
 
 Example:
 
 ```bash
-$ python main.py -bball -players
+$ python main.py gentype=bball filename=players --silent
 ```
 
 The above example will use the basketball generator and save the results to players.csv.
@@ -64,7 +65,7 @@ If you'd like to help and work on this project or you have a cool idea you would
 
 If you're interested in adding a generator, consider the following things:
 
-- All the generators return a pandas dataframe.
+- All the generators return a pandas DataFrame.
 - There currently are no strict standards as to what the generators need to return in terms of properties/schema, meaning if you'd like to create a monster generator it is definitely possible!
 - Please insert your newly coded generator under `/generators`
 - Do use the available generators if they help your generator structure. Meaning if you need a name for your schema - use the name generator!
@@ -73,21 +74,15 @@ If you're interested in adding a generator, consider the following things:
 
 #### Change Log:
 
-##### 17/10/2020 -
+##### 18/10/2020 -
 
-:heavy_check_mark: Arrange the code files - split the functions into relevant pages,
+:heavy_check_mark: Implemented an option to silent the generation log.
 
-:heavy_check_mark: Finish the basketball player model - without realistic numbers.
+:heavy_check_mark: Enabled the user to enter command arguments in any order.
 
-:heavy_check_mark: Implement the .csv export function.
+:heavy_check_mark: Redefined the command argument system.
 
-:heavy_check_mark: Implement the RPG generator (more on that below)
-
-:heavy_check_mark: Restructure the project to allow only name generation.
-
-:heavy_check_mark: ​Restructure the projects file system - put the different generator files in a separate folder.
-
-:heavy_check_mark: Various bug fixes.
+:heavy_check_mark: Various quality of code improvements :smiley:.
 
 
 

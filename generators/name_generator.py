@@ -29,14 +29,15 @@ def single_name_generator(name_data, gender):
     
     return(full_name)
 
-def name_generator(name_data, n):
+def name_generator(name_data, n, silent):
     ''' Generates a full name, gender => returns a pandas DataFrame '''
     data = {'name': [], 'gender': []}
     for _ in range(n):
         gender, gender_letter = gender_generator.gender_generator()
         data['name'].append(single_name_generator(name_data, gender))
         data['gender'].append(gender_letter)
-        print(f'Generating name {_} out of {n}')
+        if not silent:
+            print(f'Generating name {_} out of {n}')
     return pd.DataFrame(data)
 
 

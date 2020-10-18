@@ -19,7 +19,7 @@ def attribute_gen(att_range):
     else: 
         raise TypeError('There was an error in the range definition')
 
-def rpg_player(name_data, n):
+def rpg_player(name_data, n, silent):
 
     ''' Generates an RPG player, based on the properties below. Returns a pandas DataFrame '''
 
@@ -66,7 +66,8 @@ def rpg_player(name_data, n):
         for attribute_type, attribute_range in p_classes_att_range[class_type]:
             p_data_att[attribute_type].append(attribute_gen(attribute_range))      
 
-        print(f'Generating player {_} out of {n}')
+        if not silent:
+            print(f'Generating player {_} out of {n}')
 
     df_data_pro = pd.DataFrame(p_data_pro)
     df_data_att = pd.DataFrame(p_data_att)

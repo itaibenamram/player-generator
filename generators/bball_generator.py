@@ -2,7 +2,7 @@ from random import randint, uniform
 from generators import name_generator, gender_generator
 import pandas as pd
 
-def bball_player(name_data, n):
+def bball_player(name_data, n, silent):
     player_properties = ['name', 'gender', 'team', 'age', 'height', 'weight', 'games_played']
     player_data = {}
     for prop in player_properties:
@@ -23,6 +23,7 @@ def bball_player(name_data, n):
         
         player_data['games_played'].append(randint(0,100))
 
-        print(f'Generating player {_} out of {n}')
+        if not silent:
+            print(f'Generating player {_} out of {n}')
     return pd.DataFrame(player_data)
 
