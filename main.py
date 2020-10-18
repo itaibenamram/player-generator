@@ -25,6 +25,7 @@ def commandline_argument_check(command_input):
     file_name = None
     file_type = '.csv'
     checked_arguments = {'silent': False,
+                    'genamount' : None,
                     'filetype': file_type,
                     'gentype': gentype,
                     'filename': file_name}
@@ -50,6 +51,11 @@ def commandline_argument_check(command_input):
                     checked_arguments[key] = m_commands_dic[key]
                 else:
                     print('Invalid generator was entered - please pick one from the list below.')
+            if key == 'genamount':
+                try:
+                    checked_arguments[key] = int(m_commands_dic[key])
+                except ValueError:
+                    raise ValueError('Invalid number of generated players requested.')
             else:
                 checked_arguments[key] = m_commands_dic[key]
         except KeyError:
@@ -110,23 +116,24 @@ def main():
         print(f'Generator type is : {checked_arguments["gentype"]}')
 
     # Handling number of players generated
-    num_players = input("Please enter the number of players you would like to generate: ")
-    try:
-        num_players = int(num_players)
-    except:
-        raise Exception('Number of players can only be an integer')
+    if checked_arguments['genamount'] == None:
+        num_players = input("Please enter the number of players you would like to generate: ")
+        try:
+            checked_arguments['genamount'] = int(num_players)
+        except:
+            raise Exception('Number of players can only be an integer')
     
     # Generating the data
-    generated_players = generator(int(num_players), checked_arguments['gentype'], checked_arguments['silent'])
+    generated_players = generator(checked_arguments['genamount'], checked_arguments['gentype'], checked_arguments['silent'])
 
     # Handling file name 
     if checked_arguments['filename']:
         generated_players.to_csv(f'{checked_arguments["filename"]}{checked_arguments["filetype"]}')
-        print(f'Generated {num_players} players and stored them to {checked_arguments["filename"]}{checked_arguments["filetype"]}')
+        print(f'Generated {checked_arguments["genamount"]} players and stored them to {checked_arguments["filename"]}{checked_arguments["filetype"]}')
     else:
         print(f'No file name was given when activating the generator, your file will be saved to player{checked_arguments["filetype"]}')
         generated_players.to_csv('player.csv')
-        print(f'Generated {num_players} players and stored them to player{checked_arguments["filetype"]}')
+        print(f'Generated {checked_arguments["genamount"]} players and stored them to player{checked_arguments["filetype"]}')
 
 if __name__ == "__main__":
     main()

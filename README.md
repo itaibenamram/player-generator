@@ -17,7 +17,7 @@ I Started to put together the generator that I hope to turn into an API (but tha
 - General Basketball player - creates a player with the following properties:
   - name, gender, team, age, height, weight, games_played
 - RPG player generator.
-- Generated data into `.csv`.
+- Generated data into `.csv` (more supported types in the future :D).
 
 
 
@@ -35,14 +35,15 @@ The following command line arguments are currently available:
 - File name to save to (note that you only need to define the file name, and not the file type).:
   - `file_name=<your-file-name>`
 - Use `--silent` to hide the console logging of player generation.
+- To define the amount of generated players you want through the command-line use the `genamount=` argument
 
 Example:
 
 ```bash
-$ python main.py gentype=bball filename=players --silent
+$ python main.py gentype=bball filename=players genamount=50 --silent
 ```
 
-The above example will use the basketball generator and save the results to players.csv.
+The above example will use the basketball generator to generate 50 players and save the results to players.csv.
 
 In the future you'll be able to define the amount of players you want to generate.
 
@@ -50,9 +51,8 @@ In the future you'll be able to define the amount of players you want to generat
 
 ### Current To-Do's:
 
-1. Implement the option to choose the amount of players generated via the command line.
-2. Implement a single generation type that prints to the console.
-3. Define the requirements to create new sport models.
+1. Implement a single generation type that prints to the console.
+3. Define the requirements to create new generator.
 4. Implement the option to save to different file types.
 5. Implement a test system for easier development.
 6. Continuously reworking the README.md :raised_hands:
@@ -81,6 +81,8 @@ If you're interested in adding a generator, consider the following things:
 :heavy_check_mark: Enabled the user to enter command arguments in any order.
 
 :heavy_check_mark: Redefined the command argument system.
+
+:heavy_check_mark: Implement the option to choose the amount of players generated via the command line.
 
 :heavy_check_mark: Various quality of code improvements :smiley:.
 
