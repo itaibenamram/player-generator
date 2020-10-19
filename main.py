@@ -19,12 +19,19 @@ def commandline_argument_check(command_input):
     console commands - effect the data displayed when generator runs.
     main commands - define which generator to use and file type / name.
 
+    print - defines if the generated players are saved or printed to console.
+    genamount - amount of players to generate.
+    filetype - not implemented yet :S
+    filename - the file to save the results to.
+    silent - tells the generator not to print the progress to the console.
+
     '''
     # Default Settings
     gentype = None
-    file_name = None
+    file_name = 'results'
     file_type = '.csv'
     checked_arguments = {'silent': False,
+                    'print': False,
                     'genamount' : None,
                     'filetype': file_type,
                     'gentype': gentype,
@@ -64,8 +71,10 @@ def commandline_argument_check(command_input):
     if '--silent' in console_commands:
         checked_arguments['silent'] = True
 
-    return checked_arguments
+    if '--print' in console_commands:
+        checked_arguments['print'] = True 
 
+    return checked_arguments
 
 def generator(n, generator_type, silent):
     """
@@ -87,7 +96,7 @@ def generator(n, generator_type, silent):
         player_data = name_generator.name_generator(name_data, n, silent)
 
     return player_data
-
+    
 
 def main():
     checked_arguments = commandline_argument_check(sys.argv)  
@@ -126,14 +135,14 @@ def main():
     # Generating the data
     generated_players = generator(checked_arguments['genamount'], checked_arguments['gentype'], checked_arguments['silent'])
 
+
     # Handling file name 
-    if checked_arguments['filename']:
+    if generated_players.shape[0] == 1 or checked_arguments['print']:
+        print(generated_players)
+    else:
         generated_players.to_csv(f'{checked_arguments["filename"]}{checked_arguments["filetype"]}')
         print(f'Generated {checked_arguments["genamount"]} players and stored them to {checked_arguments["filename"]}{checked_arguments["filetype"]}')
-    else:
-        print(f'No file name was given when activating the generator, your file will be saved to player{checked_arguments["filetype"]}')
-        generated_players.to_csv('player.csv')
-        print(f'Generated {checked_arguments["genamount"]} players and stored them to player{checked_arguments["filetype"]}')
+
 
 if __name__ == "__main__":
     main()

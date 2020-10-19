@@ -1,3 +1,17 @@
+##### 18/10/2020 -
+
+Implemented an option to silent the generation log.
+
+Enabled the user to enter command arguments in any order.
+
+Redefined the command argument system.
+
+Implement the option to choose the amount of players generated via the command line.
+
+Various quality of code improvements :smiley:.
+
+
+
 ##### 17/10/2020 -
 
 Arrange the code files - split the functions into relevant pages

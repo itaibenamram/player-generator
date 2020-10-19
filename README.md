@@ -1,14 +1,10 @@
 ## Welcome to Player Generator :gear:
 
-Player Generator aims to be an extensive generator that will help you create player data with ease for use in Apps / board games / database testing or whatever comes to mind.
+A generator that will help you create player data with ease for use in apps / board games / database testing or whatever comes to mind.
 
 ### Why was the player generator created? 
 
-Although there are numerous types of generators on the internet I wanted to create a versatile generator that can generate a big amount of data for a website I am building (to test it's database).
-
-I Started to put together the generator that I hope to turn into an API (but that's still far away).
-
-
+Although there are numerous types of generators on the internet I wanted to create a versatile generator that can generate a big amount of data for a website I am building (to test it's database), so might as well share it to get some thoughts/code reviews etc...
 
 ### Current features :rocket::
 
@@ -30,11 +26,13 @@ When in the directory of `player-generator` you can run the generator using `pyt
 The following command line arguments are currently available:
 
 - Generator types - defined using the `gentype=` followed by the generator types available:
+  - `name` to activate the name generator.
   - `bball` to activate the basketball player generator.
   - `rpg` to activate the RPG player generator.
 - File name to save to (note that you only need to define the file name, and not the file type).:
   - `file_name=<your-file-name>`
 - Use `--silent` to hide the console logging of player generation.
+- Use `--print` to print the results to console and not save them.
 - To define the amount of generated players you want through the command-line use the `genamount=` argument
 
 Example:
@@ -51,11 +49,17 @@ In the future you'll be able to define the amount of players you want to generat
 
 ### Current To-Do's:
 
-1. Implement a single generation type that prints to the console.
+Small features :hatching_chick:: 
+
 3. Define the requirements to create new generator.
 4. Implement the option to save to different file types.
 5. Implement a test system for easier development.
 6. Continuously reworking the README.md :raised_hands:
+
+Big features :muscle::
+
+1. Create a custom generator type (user can define the required properties) - or read requirements from JSON files.
+2. Enable the user to drop unnecessary generator properties.
 
 
 
@@ -74,17 +78,15 @@ If you're interested in adding a generator, consider the following things:
 
 #### Change Log:
 
-##### 18/10/2020 -
+##### 19/10/2020:
 
-:heavy_check_mark: Implemented an option to silent the generation log.
+:heavy_check_mark: If only 1 player is generated, it'll print to console.
 
-:heavy_check_mark: Enabled the user to enter command arguments in any order.
+:heavy_check_mark: Enabled the option to print all the results to console and not save them - using `--print`
 
-:heavy_check_mark: Redefined the command argument system.
+:heavy_check_mark: Added more function documentations.
 
-:heavy_check_mark: Implement the option to choose the amount of players generated via the command line.
-
-:heavy_check_mark: Various quality of code improvements :smiley:.
+:heavy_exclamation_mark: Edited the README.md ( Always nice :happy: )
 
 
 
